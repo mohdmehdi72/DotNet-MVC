@@ -1,0 +1,25 @@
+﻿@model List<WebApplication5.Models.StudentData>
+    <br />
+<button class="btn btn-success">@Html.ActionLink("Add Student","NewAdd")</button>
+<table class="table">
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>City</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.empid</td>
+            <td>@item.ename</td>
+            <td>@item.mobile</td>
+            <td>@item.email</td>
+            <td>@item.city</td>
+            <td><a class="btn btn-primary" href="@Url.Action("Edit","Home", new {item.empid }) ">Edit</a></td>
+            <td><a class="btn btn-primary" href="@Url.Action("Delete","Home", new {item.empid }) ">Delete</a></td>
+
+        </tr>
+    }
+</table>
